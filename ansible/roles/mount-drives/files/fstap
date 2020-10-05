@@ -1,0 +1,4 @@
+proc            /proc           proc    defaults          0       0
+PARTUUID=f6c18800-01  /boot           vfat    defaults          0       2
+PARTUUID=f6c18800-02  /               ext4    defaults,noatime  0       1
+UUID=db974bf2-46cc-4f19-aea9-587203df8256 /media/4tb ext4 defaults,auto,users,rw,nofail,noatime 0 0

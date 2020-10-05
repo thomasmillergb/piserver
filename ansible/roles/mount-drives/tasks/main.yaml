@@ -1,0 +1,26 @@
+- name: create files dir
+  file:
+    path: "/home/pi/files"
+    state: directory
+    mode: 0755
+
+- name: Copy Auto Mount config
+  template:
+    src: files/fstap
+    dest: "/home/pi/files/fstap"
+    mode: 0755
+
+
+- name: copy mount script
+  template:
+    src: files/mount.sh
+    dest: "/home/pi/scripts/mount.sh"
+    mode: 0755
+
+- name: Mount drive
+  command: "sudo /home/pi/scripts/mount.sh"
+
+
+- name: Unconditionally reboot the machine with all defaults
+  become: true
+  reboot:

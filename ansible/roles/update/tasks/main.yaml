@@ -1,0 +1,5 @@
+- name: Update
+  command: "sudo apt update"
+
+- name: Update full
+  command: "sudo apt full-upgrade"

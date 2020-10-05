@@ -1,0 +1,15 @@
+- name: create profile home directory
+  file:
+    path: "/home/pi/scripts"
+    state: directory
+    mode: 0755
+
+- name: copy install docker
+  template:
+    src: files/install-docker.sh
+    dest: "/home/pi/scripts/install-docker.sh"
+    mode: 0755
+
+
+- name: Install docer
+  command: "sudo /home/pi/scripts/install-docker.sh"

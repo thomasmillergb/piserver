@@ -1,0 +1,15 @@
+- name: create profile home directory
+  file:
+    path: "/home/pi/scripts"
+    state: directory
+    mode: 0755
+
+- name: plex script
+  template:
+    src: files/start-plex-docker.sh
+    dest: "/home/pi/scripts/start-plex-docker.sh"
+    mode: 0755
+
+
+- name: start plex
+  command: "sudo /home/pi/scripts/start-plex-docker.sh"

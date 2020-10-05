@@ -1,0 +1,10 @@
+---
+- name: bootstrap pi
+  hosts:
+    - system
+  roles:
+    - pi-hole
+#    - plex
+#    - mount-drives
+#    - update
+#    - docker

@@ -1,0 +1,17 @@
+- name: create profile home directory
+  file:
+    path: "/home/pi/pihole"
+    state: directory
+    mode: 0755
+
+- name: copy install docker
+  template:
+    src: files/Docker-compose
+    dest: "/home/pi/pihole/docker-compose.yaml"
+    mode: 0755
+
+
+- name: Start Pi Home
+  command:
+    chdir: /home/pi/pihole
+    cmd: sudo docker-compose up --detach
