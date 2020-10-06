@@ -9,6 +9,15 @@
     state: directory
     mode: 0755
 
+- name: Copy movie deluge config
+  unarchive:
+    src: files/config-movies.gz.tar
+    dest: /media/4tb/deluge
+
+- name: Copy tv delugeconfig
+  unarchive:
+    src: files/config-tv.gz.tar
+    dest: /media/4tb/deluge
 
 - name: Start deluge
   command:
