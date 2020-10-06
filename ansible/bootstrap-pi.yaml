@@ -3,7 +3,8 @@
   hosts:
     - system
   roles:
-    - pi-hole
+    - deluge
+#    - pi-hole
 #    - plex
 #    - mount-drives
 #    - update

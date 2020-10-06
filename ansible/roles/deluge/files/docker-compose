@@ -1,0 +1,35 @@
+---
+version: "2.1"
+services:
+  deluge_movies:
+    image: linuxserver/deluge
+    container_name: deluge_movies
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=022 #optional
+      - DELUGE_LOGLEVEL=info #optional
+    volumes:
+      - /media/4tb/deluge/config-movies:/config
+      - /media/4tb/downlaods:/downloads
+      - /media/4tb/movies:/movies
+      - /media/4tb/tv:/tv
+    restart: unless-stopped
+  deluge_tv:
+    image: linuxserver/deluge
+    container_name: deluge_tv
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=022 #optional
+      - DELUGE_LOGLEVEL=info #optional
+    volumes:
+      - /media/4tb/deluge/config-tv:/config
+      - /media/4tb/downlaods:/downloads
+      - /media/4tb/movies:/movies
+      - /media/4tb/tv:/tv
+    restart: unless-stopped

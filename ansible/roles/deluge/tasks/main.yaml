@@ -1,0 +1,28 @@
+- name: create deluge dir
+  file:
+    path: "/home/pi/deluge"
+    state: directory
+    mode: 0755
+- name: create deluge dir
+  file:
+    path: "/media/4tb/deluge"
+    state: directory
+    mode: 0755
+
+
+- name: Start deluge
+  command:
+    chdir: /home/pi/deluge
+    cmd: docker-compose down
+
+- name: copy deluge docker compose
+  template:
+    src: files/docker-compose
+    dest: "/home/pi/deluge/docker-compose.yaml"
+    mode: 0755
+
+
+- name: Start deluge
+  command:
+    chdir: /home/pi/deluge
+    cmd: sudo docker-compose up --detach
